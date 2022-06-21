@@ -2,6 +2,7 @@ package com.yedam.app.products;
 
 import java.util.Scanner;
 
+import com.yedam.app.deal.ExportGoodsDAO;
 import com.yedam.app.deal.ReceivingGoodsDAO;
 
 public class Management {
@@ -12,7 +13,7 @@ public class Management {
 	protected Scanner sc = new Scanner(System.in);
 	protected ProductsDAO pDAO = ProductsDAO.getProductsDAO();
 	protected ReceivingGoodsDAO rDAO = ReceivingGoodsDAO.getReceivingGoodsDAO();
-	protected ExportGoodsDAO tDAO = ExportGoodsDAO.getExportGoodsDAO(); 
+	protected ExportGoodsDAO eDAO = ExportGoodsDAO.getExportGoodsDAO(); 
 	
 	
 	/*

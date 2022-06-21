@@ -35,7 +35,7 @@ public class ProductsDAO extends DAO{
 			connect();
 			
 			String sql = "INSERT INTO products (product_id, product_name, product_price)"
-						+ " VALUES (products_seq, ?, ?)";
+						+ " VALUES (products_seq.nextval, ?, ?)";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, product.getProductName());
 			ps.setInt(2, product.getProductPrice());
@@ -112,7 +112,7 @@ public class ProductsDAO extends DAO{
 			
 			String sql = "DELETE FROM products WHERE product_id = ?";
 			ps = conn.prepareStatement(sql);
-			ps.setInt(2, productId);
+			ps.setInt(1, productId);
 			
 			int result = ps.executeUpdate();
 			if (result > 0) {
@@ -129,6 +129,7 @@ public class ProductsDAO extends DAO{
 		}
 	}
 	
+	
 	public Product selectOne(String productName) {
 		Product product = null;
 		try {
@@ -137,6 +138,34 @@ public class ProductsDAO extends DAO{
 			String sql = "SELECT * FROM products WHERE product_name = ?";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, productName);
+			
+			rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				product = new Product();
+				
+				product.setProductId(rs.getInt(1));
+				product.setProductName(rs.getString(2));
+				product.setProductPrice(rs.getInt(3));
+				product.setProductStock(rs.getInt(4));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return product;
+	}
+	
+	public Product selectOne(int productId) {
+		Product product = null;
+		try {
+			connect();
+			
+			String sql = "SELECT * FROM products WHERE product_id = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, productId);
 			
 			rs = ps.executeQuery();
 			

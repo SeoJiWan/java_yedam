@@ -29,7 +29,7 @@ public class DAO {
 	 * Method
 	 */
 	// DB configuration
-	public void dbConfig() {
+	private void dbConfig() {
 		String src = "config/db.properties"; // src폴더 아래부터의 경로
 		Properties properties = new Properties();
 

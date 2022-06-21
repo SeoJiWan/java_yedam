@@ -7,25 +7,26 @@ import java.util.List;
 
 import com.yedam.app.common.DAO;
 
-public class ReceivingGoodsDAO extends DAO{
+public class ExportGoodsDAO extends DAO {
+
 	/*
 	 * Field
 	 */
-	private static ReceivingGoodsDAO dao = null;
+	private static ExportGoodsDAO dao = null;
 
 	
 	/*
 	 * Constructor
 	 */
-	private ReceivingGoodsDAO() {}
+	private ExportGoodsDAO() {}
 
 	
 	/*
 	 * Method
 	 */
-	public static ReceivingGoodsDAO getReceivingGoodsDAO() {
+	public static ExportGoodsDAO getExportGoodsDAO() {
 		if (dao == null) {
-			dao = new ReceivingGoodsDAO();
+			dao = new ExportGoodsDAO();
 		}
 		return dao;
 	}
@@ -34,11 +35,12 @@ public class ReceivingGoodsDAO extends DAO{
 	public void insert(DealInfo info) {
 		try {
 			connect();
-			String sql = "INSERT INTO receiving_goods (product_id, product_amount) "
+			String sql = "INSERT INTO export_goods (product_id, product_amount) "
 					+ "VALUES (?, ?)";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, info.getProductId());
 			ps.setInt(2, info.getProductAmount());
+			
 			int result = ps.executeUpdate();
 			
 			if (result > 0) {
@@ -54,13 +56,13 @@ public class ReceivingGoodsDAO extends DAO{
 		}
 	}
 	
-	//단건조회 - 입고내역 존재유무
+	//단건조회 - 출고내역 존재유무
 	public boolean selectInfo(int productId) {
 		boolean isSelected = false;
 		
 		try {
 			connect();
-			String sql = "SELECT count(*) AS cnt FROM receiving_goods "
+			String sql = "SELECT count(*) AS cnt FROM export_goods "
 						+ "WHERE product_id = ?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, productId);
@@ -81,12 +83,12 @@ public class ReceivingGoodsDAO extends DAO{
 		return isSelected;
 	}
 	
-	//단건조회 - 입고수량
+	//단건조회 - 출고수량
 	public int selectAmount(int productId) {
 		int amount = 0;
 		try {
 			connect();
-			String sql = "SELECT NVL(SUM(product_amount), 0) as sum FROM receiving_goods "
+			String sql = "SELECT NVL(SUM(product_amount), 0) as sum FROM export_goods "
 						+ "WHERE product_id = ?";
 			ps = conn.prepareStatement(sql);
 			
@@ -104,7 +106,7 @@ public class ReceivingGoodsDAO extends DAO{
 		return amount;
 	}
 	
-	//전체조회 - 현재까지 입고된 내역
+	//전체조회 - 현재까지 출고된 내역
 	public List<DealInfo> selectAll() {
 		List<DealInfo> list = new ArrayList<>();
 		
@@ -112,7 +114,7 @@ public class ReceivingGoodsDAO extends DAO{
 			connect();
 			String sql = "SELECT r.deal_date, r.product_id, p.product_name, r.product_amount "
 						+ "FROM products p "
-						+ "JOIN receiving_goods r ON (p.product_id = r.product_id) "
+						+ "JOIN export_goods r ON (p.product_id = r.product_id) "
 						+ "ORDER BY r.deal_date";
 			ps = conn.prepareStatement(sql);
 			
@@ -143,7 +145,7 @@ public class ReceivingGoodsDAO extends DAO{
 			connect();
 			String sql = "SELECT r.deal_date, r.product_id, p.product_name, r.product_amount "
 						+ "FROM products p "
-						+ "JOIN receiving_goods r ON (p.product_id = r.product_id) "
+						+ "JOIN export_goods r ON (p.product_id = r.product_id) "
 						+ "WHERE deal_date = ? "
 						+ "ORDER BY r.deal_date";
 			ps = conn.prepareStatement(sql);
@@ -176,7 +178,7 @@ public class ReceivingGoodsDAO extends DAO{
 			connect();
 			String sql = "SELECT r.deal_date, r.product_id, p.product_name, r.product_amount "
 						+ "FROM products p "
-						+ "JOIN receiving_goods r ON (p.product_id = r.product_id) "
+						+ "JOIN export_goods r ON (p.product_id = r.product_id) "
 						+ "WHERE product_id = ? "
 						+ "ORDER BY r.deal_date";
 			ps = conn.prepareStatement(sql);
