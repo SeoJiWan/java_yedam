@@ -1,0 +1,28 @@
+## JDBC
+# 1
+자바에서 db를 사용하기 위한 인터페이스
+
+각제조사가 제공하는 라이브러리를 설치
+
+ojdbc path = C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6_g.jar
+
+DB와 java 사이의 커넥션을 만듬
+통신을 한다는건 java 에서 db에 데이터를 요청하고 db의 데이터를 java에 반환 (crud 를 함)
+--> 이 때 사용되는 클래스가 2가지 ( Statement, PreparedStatement ) --> sql 문 전달하는 역할
+--> ResultSet --> select 결과 반환, 연산불가, 결과를 통째로 들고옴 (커서라는 개념?)
+
+full name 을 찾아야함
+"oracle.jdbc.driver.OracleDriver" - 사용하고자 하는 ojdbc 클래스
+"jdbc:oracle:thin:@localhost:1521:xe" - 경로
+
+jdbc 동작 원리 ~ https://devlog-wjdrbs96.tistory.com/139
+
+이클립스 JDBC 설정
+1. 프로젝트 생성
+2. 마우스 우클릭 Build past -> Configure build path -> library -> module path -> add external jars -> ojdbc 연결
+
+프로젝트 내에서 lib 폴더에 ojdbc.jar 를 넣고 다니는 경우도 있음
+
+vo : db에서 뽑아온 정보를 저장하는 객체
+dto
+dao : 
