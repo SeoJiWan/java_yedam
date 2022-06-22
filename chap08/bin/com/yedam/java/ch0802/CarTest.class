@@ -1,0 +1,20 @@
+ugh=false'
+		'DLTK_default_italic=false'
+		'DLTK_single_line_comment_strikethrough=false'
+		'DLTK_comment_task_tag_bold=false'
+		'content_assist_parameters_background_underline=false'
+		'tcl_variable_bold=false'
+		'DLTK_number_underline=false'
+		'DLTK_default_strikethrough=false'
+		'DLTK_function_definition_italic=false'
+		'DLTK_keyword_return_strikethrough=false'
+		'DLTK_default_underline=false'
+		'DLTK_comment_task_tag_underline=false'
+		'DLTK_string_italic=false'
+}
+IEclipsePreferences#org-eclipse-e4-CSS {
+	preferences:
+		'org.eclipse.e4.CSS.syntaxColorer.tokenStyles.number.bgColor='
+		'org.eclipse.e4.CSS.syntaxColorer.tokenStyles.punctuation.bgColor='
+		'org.eclipse.e4.CSS.syntaxColorer.tokenStyles.Element.color=202,230,130'
+		'org.eclipse.e4.CSS.syntaxColorer.tokenStyles.number

@@ -1,0 +1,11 @@
+clipse.php.internal.ui.editor.highlighters.InternalConstantHighlighting.underline=false'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.InternalFunctionHighlighting.underline=false'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.ConstantHighlighting.strikethrough=false'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.StaticMethodHighlighting.underline=false'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.DeprecatedHighlighting.bold=false'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.StaticMethodHighlighting.enabled=true'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.SuperGlobalHighlighting.italic=false'
+		'editorColorComment=#99968B | null | null | null | null | null'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.InternalClassHighlighting.bold=false'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.FieldHighlighting.bold=false'
+		'semanticHighlighting.org.eclipse.php.internal.ui.editor.highlighters.

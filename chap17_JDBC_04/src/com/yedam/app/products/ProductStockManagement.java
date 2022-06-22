@@ -41,7 +41,7 @@ public class ProductStockManagement extends Management {
 	/*
 	 * Method
 	 */
-	@Override
+
 	protected void printMenu() {
 		System.out.println("=======================================================");
 		System.out.println("1.입고 | 2.입고내역조회 | 3.출고 | 4.출고내역조회 | 9.뒤로가기");

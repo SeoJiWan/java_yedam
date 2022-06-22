@@ -91,6 +91,7 @@ public class ExportGoodsDAO extends DAO {
 			String sql = "SELECT NVL(SUM(product_amount), 0) as sum FROM export_goods "
 						+ "WHERE product_id = ?";
 			ps = conn.prepareStatement(sql);
+			ps.setInt(1, productId);
 			
 			rs = ps.executeQuery();
 			

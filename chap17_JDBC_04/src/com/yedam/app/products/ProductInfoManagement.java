@@ -1,24 +1,37 @@
 package com.yedam.app.products;
 
+import java.util.List;
+
+import com.yedam.app.common.LogInControl;
+
 public class ProductInfoManagement extends Management{
 	
 	public ProductInfoManagement() { // 부모클래스인 Management 생성자도 호출함 
+		
+		boolean role = selectRole();
+		
 		while(true) {
-			printMenu();
+			printMenu(role);
 			
 			int menuNo = selectMenu();
 			
-			if (menuNo == 1) {
+			if (menuNo == 1 && role) {
 				// 제품정보등록
 				insertProInfo();
 			}
-			else if(menuNo == 2) {
+			else if(menuNo == 2 && role) {
 				// 제품정보수정 - 가격
 				updateProInfo();
 			}
-			else if (menuNo == 3) {
+			else if (menuNo == 3 && role) {
 				// 제품정보삭제
 				deleteProInfo();
+			}
+			else if (menuNo == 4) {
+				findProInfo();
+			}
+			else if (menuNo == 5) {
+				findAllProInfo();
 			}
 			else if (menuNo == 9) {
 				// 뒤로가기
@@ -31,11 +44,16 @@ public class ProductInfoManagement extends Management{
 		}
 	}
 
-	@Override
-	protected void printMenu() {
-		System.out.println("=======================================");
-		System.out.println("1.제품등록 | 2.제품수정 | 3.제품삭제 | 9.뒤로가기");
-		System.out.println("=======================================");
+
+	protected void printMenu(boolean role) {
+		System.out.println("============================================================");
+		String menu = "";
+		if (role) {
+			menu += "1.제품등록 | 2.제품수정 | 3.제품삭제 | ";
+		}
+		menu += "4.제품검색 | 5.전체조회 | 9.뒤로가기";
+		System.out.println(menu);
+		System.out.println("============================================================");
 	}
 	
 	private void back() {
@@ -121,6 +139,34 @@ public class ProductInfoManagement extends Management{
 		}
 		
 		return product;
+	}
+	
+	private void findProInfo() {
+		String productName = inputName();
+		
+		Product product = pDAO.selectOne(productName);
+		
+		if (product == null) {
+			System.out.println("등록된 제품이 아닙니다.");
+			return;
+		}
+		
+		System.out.println(product);
+	}
+	
+	private void findAllProInfo() {
+		List<Product> list = pDAO.selectAll();
+		list.forEach(System.out::println);
+	}
+	
+	private boolean selectRole() {
+		int role = LogInControl.getLogIN().getMemberRole();
+		if (role == 0) {
+			return true;
+		}
+		else {
+			 return false;
+		}
 	}
 	
 	

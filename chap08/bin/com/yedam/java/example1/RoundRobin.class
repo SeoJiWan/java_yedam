@@ -1,0 +1,11 @@
+reground.past.due=255,23,245'
+		'org.eclipse.mylyn.tasks.ui.colors.foreground.past.scheduled=50,97,159'
+		'org.eclipse.mylyn.tasks.ui.colors.foreground.task.active=113,77,119'
+		'org.eclipse.mylyn.tasks.ui.colors.foreground.thisweek.scheduled=73,83,90'
+		'org.eclipse.mylyn.tasks.ui.colors.foreground.today.completed=92,146,110'
+		'org.eclipse.mylyn.tasks.ui.colors.foreground.today.scheduled=50,97,159'
+		'org.eclipse.mylyn.tasks.ui.colors.incoming.background=11,13,14'
+		'org.eclipse.pde.genericeditor.extension.editor.color.attribute=196,138,114'
+		'org.eclipse.pde.genericeditor.extension.editor.color.comment=93,134,75'
+		'org.eclipse.pde.genericeditor.extension.editor.color.header=115,130,140'
+		'org.eclipse.pde.genericeditor.extension.editor.color.q
