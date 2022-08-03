@@ -3,7 +3,7 @@ package practice.customerService;
 public class Customer {
 	
 	// 필드
-	protected static int serialNo = 1001;
+	protected static int serialNo = 1002;
 	protected String customerName;
 	protected int customerPhoneNum;
 	protected String customerGrade;
